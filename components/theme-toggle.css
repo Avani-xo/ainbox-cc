@@ -1,0 +1,51 @@
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-toggle:hover {
+  background-color: var(--card);
+  transform: rotate(15deg);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.theme-toggle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+  opacity: 0;
+  transform: scale(0);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.theme-toggle:active::before {
+  opacity: 0.2;
+  transform: scale(1.5);
+}
+
+.theme-toggle-placeholder {
+  width: 40px;
+  height: 40px;
+}
+
+/* Add transition for theme change */
+.theme-transition {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
